@@ -11,8 +11,8 @@ RSpec.describe "When i visit a dish's show page" do
     visit "/dishes/#{dish_1.id}"
 
     expect(page).to have_content("Gordon")
-    expect(page).to have_content(ingredient_1)
-    expect(page).to have_content(ingredient_2)
-    expect(page).to have_content(ingredient_3)
+    expect(page).to have_content(ingredient_1.name)
+    expect(page).to have_content(ingredient_2.name)
+    expect(page).to have_content(ingredient_3.name)
   end
 end
