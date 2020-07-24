@@ -4,9 +4,13 @@ RSpec.describe "When i visit a dish's show page" do
   before :each do
     chef_1 = Chef.create(name: "Gordon")
     @dish_1 = chef_1.dishes.create(name: "Panini", description: "A lovely sandwhich")
-    @ingredient_1 = @dish_1.ingredients.create(name: "Tomato", calories: 20)
-    @ingredient_2 = @dish_1.ingredients.create(name: "Bread", calories: 150)
-    @ingredient_3 = @dish_1.ingredients.create(name: "Cheese", calories: 60)
+    @ingredient_1 = Ingredient.create(name: "Tomato", calories: 20)
+    @ingredient_2 = Ingredient.create(name: "Bread", calories: 150)
+    @ingredient_3 = Ingredient.create(name: "Cheese", calories: 60)
+
+    DishIngredient.create(dish_id: @dish_1.id, ingredient_id: @ingredient_1.id)
+    DishIngredient.create(dish_id: @dish_1.id, ingredient_id: @ingredient_2.id)
+    DishIngredient.create(dish_id: @dish_1.id, ingredient_id: @ingredient_3.id)
 
   end
   it "Has a list of ingredients" do
